@@ -1813,6 +1813,46 @@ function initDrag() {
   window.addEventListener('touchmove', e => {
     if (activeDrag) e.preventDefault();
   }, { passive: false });
+
+  /* ── Pinch-to-zoom on pip image ── */
+  let pipPinchActive     = false;
+  let pipPinchStartDist  = 0;
+  let pipPinchStartScale = 100;
+
+  function getTouchDist(t1, t2) {
+    const dx = t1.clientX - t2.clientX;
+    const dy = t1.clientY - t2.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  pipImg.addEventListener('touchstart', e => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      e.stopPropagation();
+      pipPinchActive     = true;
+      activeDrag         = null; // cancel any single-finger drag
+      pipPinchStartDist  = getTouchDist(e.touches[0], e.touches[1]);
+      pipPinchStartScale = pipImgScale;
+    }
+  }, { passive: false });
+
+  window.addEventListener('touchmove', e => {
+    if (pipPinchActive && e.touches.length === 2) {
+      e.preventDefault();
+      const dist  = getTouchDist(e.touches[0], e.touches[1]);
+      const ratio = dist / pipPinchStartDist;
+      pipImgScale = Math.max(5, Math.min(400, pipPinchStartScale * ratio));
+      document.getElementById('pip-scale-range').value = Math.min(400, Math.round(pipImgScale));
+      document.getElementById('pip-scale-val').textContent = Math.round(pipImgScale);
+      applyPipImgTransform();
+    }
+  }, { passive: false });
+
+  window.addEventListener('touchend', e => {
+    if (pipPinchActive && e.touches.length < 2) {
+      pipPinchActive = false;
+    }
+  });
 }
 
 /* ══════════════════════════════════════════
@@ -2171,6 +2211,8 @@ function _drawGradientToCanvas(ctx, gradientStr, w, h) {
 
 function _applyBgImageUrl(url) {
   const imgEl = document.getElementById('bg-img-el');
+  // ── Reset src first so onload always fires (avoids cached-image race) ──
+  imgEl.src = '';
   imgEl.onload = () => {
     bgImgNatW   = imgEl.naturalWidth;
     bgImgNatH   = imgEl.naturalHeight;
@@ -2684,24 +2726,8 @@ function applyAssetBg(cardEl) {
   const assetPath = cardEl.dataset.asset;
 
   // Load via a fresh Image so we get natural dimensions
-  const tmpImg = new Image();
-  tmpImg.onload = () => {
-    const imgEl = document.getElementById('bg-img-el');
-    // Set src — reuse the existing _applyBgImageUrl flow so Fill/controls work
-    imgEl.onload = () => {
-      bgImgNatW   = imgEl.naturalWidth;
-      bgImgNatH   = imgEl.naturalHeight;
-      bgImgLoaded = true;
-      fillBgImg();   // nicely fill card
-      document.getElementById('bg-img-controls').classList.add('visible');
-      imgEl.style.display = 'block';
-      // Show lock controls
-      document.getElementById('bg-lock-wrap').style.display = 'block';
-      updateEdgeShadowOverlay();
-    };
-    imgEl.src = assetPath + '?' + Date.now(); // cache-bust so onload always fires
-  };
-  tmpImg.src = assetPath;
+  // Use _applyBgImageUrl which sets onload before src (avoids cached-image race)
+  _applyBgImageUrl(assetPath);
 }
 
 /* ══════════════════════════════════════════
@@ -2745,6 +2771,8 @@ function loadPipImage(input) {
   const url = URL.createObjectURL(file);
   const imgEl = document.getElementById('pip-img-el');
 
+  // Reset src first so onload always fires even for cached/same image
+  imgEl.src = '';
   imgEl.onload = () => {
     pipImgNatW   = imgEl.naturalWidth;
     pipImgNatH   = imgEl.naturalHeight;
