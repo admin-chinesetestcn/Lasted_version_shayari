@@ -883,173 +883,6 @@ input[type="file"]   { display:none; }
         <span class="panel-chevron">▼</span>
       </div>
       <div class="panel-body">
-        <span class="nb-section-title">📓 Notebook Templates</span>
-        <div class="notebook-grid" id="nb-grid">
-
-          <!-- 1. OFF (no notebook) -->
-          <div class="nb-card active" data-nb="none" onclick="setNotebook('none',this)" title="No notebook">
-            <svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="80" height="100" fill="#1a1a1a"/>
-              <line x1="40" y1="20" x2="40" y2="80" stroke="#333" stroke-width="2"/>
-              <line x1="20" y1="50" x2="60" y2="50" stroke="#333" stroke-width="2"/>
-            </svg>
-            <span class="nb-label">Off</span>
-          </div>
-
-          <!-- 2. Classic White Ruled -->
-          <div class="nb-card" data-nb="white-ruled" onclick="setNotebook('white-ruled',this)" title="Classic white lined notebook">
-            <svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="80" height="100" fill="#fafaf7"/>
-              <!-- spiral holes -->
-              <circle cx="12" cy="14" r="3.5" fill="none" stroke="#c0b89a" stroke-width="1.5"/>
-              <circle cx="12" cy="30" r="3.5" fill="none" stroke="#c0b89a" stroke-width="1.5"/>
-              <circle cx="12" cy="46" r="3.5" fill="none" stroke="#c0b89a" stroke-width="1.5"/>
-              <circle cx="12" cy="62" r="3.5" fill="none" stroke="#c0b89a" stroke-width="1.5"/>
-              <circle cx="12" cy="78" r="3.5" fill="none" stroke="#c0b89a" stroke-width="1.5"/>
-              <circle cx="12" cy="94" r="3.5" fill="none" stroke="#c0b89a" stroke-width="1.5"/>
-              <!-- margin line -->
-              <line x1="22" y1="0" x2="22" y2="100" stroke="#f0a0a0" stroke-width="1"/>
-              <!-- ruled lines -->
-              <line x1="22" y1="18" x2="76" y2="18" stroke="#c8d4e8" stroke-width=".7"/>
-              <line x1="22" y1="28" x2="76" y2="28" stroke="#c8d4e8" stroke-width=".7"/>
-              <line x1="22" y1="38" x2="76" y2="38" stroke="#c8d4e8" stroke-width=".7"/>
-              <line x1="22" y1="48" x2="76" y2="48" stroke="#c8d4e8" stroke-width=".7"/>
-              <line x1="22" y1="58" x2="76" y2="58" stroke="#c8d4e8" stroke-width=".7"/>
-              <line x1="22" y1="68" x2="76" y2="68" stroke="#c8d4e8" stroke-width=".7"/>
-              <line x1="22" y1="78" x2="76" y2="78" stroke="#c8d4e8" stroke-width=".7"/>
-              <line x1="22" y1="88" x2="76" y2="88" stroke="#c8d4e8" stroke-width=".7"/>
-              <!-- spiral coil -->
-              <path d="M12 10 Q6 12 6 18 Q6 24 12 26 Q18 28 18 34 Q18 40 12 42 Q6 44 6 50 Q6 56 12 58 Q18 60 18 66 Q18 72 12 74 Q6 76 6 82 Q6 88 12 90" fill="none" stroke="#b0b0b0" stroke-width="1.2" stroke-linecap="round"/>
-            </svg>
-            <span class="nb-label">Ruled</span>
-          </div>
-
-          <!-- 3. Yellow Legal Pad -->
-          <div class="nb-card" data-nb="legal-pad" onclick="setNotebook('legal-pad',this)" title="Yellow legal pad">
-            <svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="80" height="100" fill="#fef3a0"/>
-              <!-- top binding strip -->
-              <rect width="80" height="10" fill="#e8d84a"/>
-              <line x1="0" y1="10" x2="80" y2="10" stroke="#c8b800" stroke-width="1"/>
-              <!-- punch holes in binding -->
-              <circle cx="15" cy="5" r="2.5" fill="#c8b800"/>
-              <circle cx="40" cy="5" r="2.5" fill="#c8b800"/>
-              <circle cx="65" cy="5" r="2.5" fill="#c8b800"/>
-              <!-- margin line -->
-              <line x1="18" y1="10" x2="18" y2="100" stroke="#f0a0a0" stroke-width="1"/>
-              <!-- lines -->
-              <line x1="18" y1="22" x2="77" y2="22" stroke="#bba800" stroke-width=".8" opacity=".5"/>
-              <line x1="18" y1="32" x2="77" y2="32" stroke="#bba800" stroke-width=".8" opacity=".5"/>
-              <line x1="18" y1="42" x2="77" y2="42" stroke="#bba800" stroke-width=".8" opacity=".5"/>
-              <line x1="18" y1="52" x2="77" y2="52" stroke="#bba800" stroke-width=".8" opacity=".5"/>
-              <line x1="18" y1="62" x2="77" y2="62" stroke="#bba800" stroke-width=".8" opacity=".5"/>
-              <line x1="18" y1="72" x2="77" y2="72" stroke="#bba800" stroke-width=".8" opacity=".5"/>
-              <line x1="18" y1="82" x2="77" y2="82" stroke="#bba800" stroke-width=".8" opacity=".5"/>
-              <line x1="18" y1="92" x2="77" y2="92" stroke="#bba800" stroke-width=".8" opacity=".5"/>
-            </svg>
-            <span class="nb-label">Legal Pad</span>
-          </div>
-
-          <!-- 4. Parchment / Vintage -->
-          <div class="nb-card" data-nb="parchment" onclick="setNotebook('parchment',this)" title="Vintage parchment">
-            <svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="pg1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#f5e6c8"/>
-                  <stop offset="100%" stop-color="#e8d0a0"/>
-                </linearGradient>
-              </defs>
-              <rect width="80" height="100" fill="url(#pg1)"/>
-              <!-- torn left edge effect -->
-              <path d="M0 0 Q3 5 0 10 Q3 20 0 30 Q3 40 0 50 Q3 60 0 70 Q3 80 0 90 Q3 95 0 100 L0 0Z" fill="#d4b878" opacity=".4"/>
-              <!-- decorative border top -->
-              <rect x="5" y="5" width="70" height="90" fill="none" stroke="#a08040" stroke-width=".8" opacity=".5"/>
-              <rect x="7" y="7" width="66" height="86" fill="none" stroke="#a08040" stroke-width=".4" opacity=".3"/>
-              <!-- faint lines -->
-              <line x1="8" y1="22" x2="73" y2="22" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
-              <line x1="8" y1="32" x2="73" y2="32" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
-              <line x1="8" y1="42" x2="73" y2="42" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
-              <line x1="8" y1="52" x2="73" y2="52" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
-              <line x1="8" y1="62" x2="73" y2="62" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
-              <line x1="8" y1="72" x2="73" y2="72" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
-              <line x1="8" y1="82" x2="73" y2="82" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
-            </svg>
-            <span class="nb-label">Parchment</span>
-          </div>
-
-          <!-- 5. Dark / Blackboard -->
-          <div class="nb-card" data-nb="blackboard" onclick="setNotebook('blackboard',this)" title="Blackboard / dark slate">
-            <svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#1e2a1e"/>
-                  <stop offset="100%" stop-color="#0d1a0d"/>
-                </linearGradient>
-              </defs>
-              <rect width="80" height="100" fill="url(#bg1)"/>
-              <!-- chalk ledge -->
-              <rect x="0" y="92" width="80" height="8" fill="#1a2a1a"/>
-              <rect x="8" y="93" width="12" height="4" rx="1" fill="#e8e4d8"/>
-              <rect x="24" y="93" width="8" height="4" rx="1" fill="#f0d8a0"/>
-              <!-- chalk lines -->
-              <line x1="8" y1="20" x2="72" y2="20" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-              <line x1="8" y1="30" x2="72" y2="30" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-              <line x1="8" y1="40" x2="72" y2="40" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-              <line x1="8" y1="50" x2="72" y2="50" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-              <line x1="8" y1="60" x2="72" y2="60" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-              <line x1="8" y1="70" x2="72" y2="70" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-              <line x1="8" y1="80" x2="72" y2="80" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-              <!-- wood frame -->
-              <rect x="0" y="0" width="80" height="5" fill="#5c3a1a"/>
-              <rect x="0" y="95" width="80" height="5" fill="#5c3a1a"/>
-              <rect x="0" y="0" width="4" height="100" fill="#5c3a1a"/>
-              <rect x="76" y="0" width="4" height="100" fill="#5c3a1a"/>
-            </svg>
-            <span class="nb-label">Blackboard</span>
-          </div>
-
-          <!-- 6. Spiral open book -->
-          <div class="nb-card" data-nb="open-book" onclick="setNotebook('open-book',this)" title="Open spiral notebook spread">
-            <svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="80" height="100" fill="#f0ede6"/>
-              <!-- page shadow / gutter -->
-              <rect x="36" y="0" width="8" height="100" fill="rgba(0,0,0,.07)"/>
-              <line x1="40" y1="0" x2="40" y2="100" stroke="#ccc" stroke-width=".5"/>
-              <!-- left page lines -->
-              <line x1="8" y1="15" x2="36" y2="15" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="8" y1="24" x2="36" y2="24" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="8" y1="33" x2="36" y2="33" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="8" y1="42" x2="36" y2="42" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="8" y1="51" x2="36" y2="51" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="8" y1="60" x2="36" y2="60" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="8" y1="69" x2="36" y2="69" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="8" y1="78" x2="36" y2="78" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="8" y1="87" x2="36" y2="87" stroke="#b8c8e0" stroke-width=".7"/>
-              <!-- right page lines -->
-              <line x1="44" y1="15" x2="73" y2="15" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="44" y1="24" x2="73" y2="24" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="44" y1="33" x2="73" y2="33" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="44" y1="42" x2="73" y2="42" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="44" y1="51" x2="73" y2="51" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="44" y1="60" x2="73" y2="60" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="44" y1="69" x2="73" y2="69" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="44" y1="78" x2="73" y2="78" stroke="#b8c8e0" stroke-width=".7"/>
-              <line x1="44" y1="87" x2="73" y2="87" stroke="#b8c8e0" stroke-width=".7"/>
-              <!-- spiral coil in center -->
-              <circle cx="40" cy="14" r="2.5" fill="none" stroke="#888" stroke-width="1.2"/>
-              <circle cx="40" cy="24" r="2.5" fill="none" stroke="#888" stroke-width="1.2"/>
-              <circle cx="40" cy="34" r="2.5" fill="none" stroke="#888" stroke-width="1.2"/>
-              <circle cx="40" cy="44" r="2.5" fill="none" stroke="#888" stroke-width="1.2"/>
-              <circle cx="40" cy="54" r="2.5" fill="none" stroke="#888" stroke-width="1.2"/>
-              <circle cx="40" cy="64" r="2.5" fill="none" stroke="#888" stroke-width="1.2"/>
-              <circle cx="40" cy="74" r="2.5" fill="none" stroke="#888" stroke-width="1.2"/>
-              <circle cx="40" cy="84" r="2.5" fill="none" stroke="#888" stroke-width="1.2"/>
-              <circle cx="40" cy="94" r="2.5" fill="none" stroke="#888" stroke-width="1.2"/>
-            </svg>
-            <span class="nb-label">Open Book</span>
-          </div>
-
-        </div>
 
         <div id="nb-controls" style="display:none;margin-top:10px;">
           <label>Paper Colour</label>
@@ -1186,35 +1019,56 @@ input[type="file"]   { display:none; }
           <div class="asset-bg-card" data-asset="assets/image (16).jpg" onclick="applyAssetBg(this)" title="Image 16">
               <img class="asset-bg-thumb-img" src="assets/image (16).jpg" alt="Image 16" loading="lazy">
               <span class="asset-bg-label">Image - 16</span>
-          </div>
-          <div class="asset-bg-card" data-asset="assets/febric_1 (1).jpg" onclick="applyAssetBg(this)" title="Image 16">
-              <img class="asset-bg-thumb-img" src="assets/febric_1 (1).jpg" alt="Image 16" loading="lazy">
-              <span class="asset-bg-label">Image - 16</span>
-          </div>
-          <div class="asset-bg-card" data-asset="assets/febric_1 (1).jpg" onclick="applyAssetBg(this)" title="Image 1">
+            </div>
+            <div class="asset-bg-card" data-asset="assets/febric_1 (1).jpg" onclick="applyAssetBg(this)" title="Image 1">
               <img class="asset-bg-thumb-img" src="assets/febric_1 (1).jpg" alt="Image 1" loading="lazy">
               <span class="asset-bg-label">Image - 1</span>
           </div>
 
-          <div class="asset-bg-card" data-asset="assets/febric_1 (2).jpg" onclick="applyAssetBg(this)" title="Image 2">
-              <img class="asset-bg-thumb-img" src="assets/febric_1 (2).jpg" alt="Image 2" loading="lazy">
-              <span class="asset-bg-label">Image - 2</span>
-          </div>
+      <div class="asset-bg-card" data-asset="assets/febric_1 (2).jpg" onclick="applyAssetBg(this)" title="Image 2">
+          <img class="asset-bg-thumb-img" src="assets/febric_1 (2).jpg" alt="Image 2" loading="lazy">
+          <span class="asset-bg-label">Image - 2</span>
+      </div>
 
-          <div class="asset-bg-card" data-asset="assets/febric_1 (3).jpg" onclick="applyAssetBg(this)" title="Image 3">
-              <img class="asset-bg-thumb-img" src="assets/febric_1 (3).jpg" alt="Image 3" loading="lazy">
-              <span class="asset-bg-label">Image - 3</span>
-          </div>
+      <div class="asset-bg-card" data-asset="assets/febric_1 (3).jpg" onclick="applyAssetBg(this)" title="Image 3">
+          <img class="asset-bg-thumb-img" src="assets/febric_1 (3).jpg" alt="Image 3" loading="lazy">
+          <span class="asset-bg-label">Image - 3</span>
+      </div>
 
-          <div class="asset-bg-card" data-asset="assets/febric_1 (4).jpg" onclick="applyAssetBg(this)" title="Image 4">
-              <img class="asset-bg-thumb-img" src="assets/febric_1 (4).jpg" alt="Image 4" loading="lazy">
-              <span class="asset-bg-label">Image - 4</span>
-          </div>
+      <div class="asset-bg-card" data-asset="assets/febric_1 (4).jpg" onclick="applyAssetBg(this)" title="Image 4">
+          <img class="asset-bg-thumb-img" src="assets/febric_1 (4).jpg" alt="Image 4" loading="lazy">
+          <span class="asset-bg-label">Image - 4</span>
+      </div>
 
-          <div class="asset-bg-card" data-asset="assets/febric_1 (5).jpg" onclick="applyAssetBg(this)" title="Image 5">
-              <img class="asset-bg-thumb-img" src="assets/febric_1 (5).jpg" alt="Image 5" loading="lazy">
-              <span class="asset-bg-label">Image - 5</span>
-          </div>
+      <div class="asset-bg-card" data-asset="assets/febric_1 (5).jpg" onclick="applyAssetBg(this)" title="Image 5">
+          <img class="asset-bg-thumb-img" src="assets/febric_1 (5).jpg" alt="Image 5" loading="lazy">
+          <span class="asset-bg-label">Image - 5</span>
+      </div>
+
+      <div class="asset-bg-card" data-asset="assets/febric_1 (6).jpg" onclick="applyAssetBg(this)" title="Image 6">
+          <img class="asset-bg-thumb-img" src="assets/febric_1 (6).jpg" alt="Image 6" loading="lazy">
+          <span class="asset-bg-label">Image - 6</span>
+      </div>
+
+      <div class="asset-bg-card" data-asset="assets/febric_1 (7).jpg" onclick="applyAssetBg(this)" title="Image 7">
+          <img class="asset-bg-thumb-img" src="assets/febric_1 (7).jpg" alt="Image 7" loading="lazy">
+          <span class="asset-bg-label">Image - 7</span>
+      </div>
+
+      <div class="asset-bg-card" data-asset="assets/febric_1 (8).jpg" onclick="applyAssetBg(this)" title="Image 8">
+          <img class="asset-bg-thumb-img" src="assets/febric_1 (8).jpg" alt="Image 8" loading="lazy">
+          <span class="asset-bg-label">Image - 8</span>
+      </div>
+
+      <div class="asset-bg-card" data-asset="assets/febric_1 (9).jpg" onclick="applyAssetBg(this)" title="Image 9">
+          <img class="asset-bg-thumb-img" src="assets/febric_1 (9).jpg" alt="Image 9" loading="lazy">
+          <span class="asset-bg-label">Image - 9</span>
+      </div>
+
+      <div class="asset-bg-card" data-asset="assets/febric_1 (10).jpg" onclick="applyAssetBg(this)" title="Image 10">
+          <img class="asset-bg-thumb-img" src="assets/febric_1 (10).jpg" alt="Image 10" loading="lazy">
+          <span class="asset-bg-label">Image - 10</span>
+      </div>
        </div>
 
         <!-- 🔒 BACKGROUND LOCK — shown after any bg image is applied -->
@@ -1228,34 +1082,6 @@ input[type="file"]   { display:none; }
           </div>
         </div>
 
-        <span class="asset-bg-section-title" style="margin-top:14px;">✨ Gradient Presets</span>
-        <div class="preset-bg-grid" id="preset-bg-grid">
-          <!-- These apply rich gradient/pattern backgrounds directly -->
-          <div class="preset-bg-card" data-preset="mughal" onclick="applyPresetBg('mughal',this)" title="Mughal Night">
-            <div class="preset-bg-thumb" style="background:linear-gradient(170deg,#0d0820 0%,#2c1654 40%,#6b3fa0 75%,#c9a96e 100%)"></div>
-            <span class="preset-bg-label">Mughal</span>
-          </div>
-          <div class="preset-bg-card" data-preset="midnight" onclick="applyPresetBg('midnight',this)" title="Midnight Deep">
-            <div class="preset-bg-thumb" style="background:linear-gradient(170deg,#000000 0%,#0a0a1a 40%,#12123a 70%,#1a1050 100%)"></div>
-            <span class="preset-bg-label">Midnight</span>
-          </div>
-          <div class="preset-bg-card" data-preset="rose" onclick="applyPresetBg('rose',this)" title="Gulistan">
-            <div class="preset-bg-thumb" style="background:linear-gradient(170deg,#1a0008 0%,#4a0a1a 35%,#8b1a2a 65%,#c94a5a 100%)"></div>
-            <span class="preset-bg-label">Gulistan</span>
-          </div>
-          <div class="preset-bg-card" data-preset="parchment" onclick="applyPresetBg('parchment',this)" title="Old Parchment">
-            <div class="preset-bg-thumb" style="background:linear-gradient(170deg,#3d1f00 0%,#8b6914 40%,#c4a050 75%,#f0d898 100%)"></div>
-            <span class="preset-bg-label">Parchment</span>
-          </div>
-          <div class="preset-bg-card" data-preset="marble" onclick="applyPresetBg('marble',this)" title="White Marble">
-            <div class="preset-bg-thumb" style="background:linear-gradient(170deg,#e8e8e8 0%,#f5f0e8 40%,#ffffff 70%,#ede8e0 100%)"></div>
-            <span class="preset-bg-label">Marble</span>
-          </div>
-          <div class="preset-bg-card" data-preset="dusk" onclick="applyPresetBg('dusk',this)" title="Golden Dusk">
-            <div class="preset-bg-thumb" style="background:linear-gradient(170deg,#0d0820 0%,#3a1a0a 35%,#8b3a0a 65%,#e07828 85%,#f0c060 100%)"></div>
-            <span class="preset-bg-label">Dusk</span>
-          </div>
-        </div>
 
         <!-- BG IMAGE CONTROLS — shown after upload -->
         <div id="bg-img-controls">
